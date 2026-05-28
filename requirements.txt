@@ -7,3 +7,5 @@ pandas>=2.0.0
 pytest-django>=4.5.0
 psycopg2-binary==2.9.12
 gunicorn>=21.2.0
+whitenoise>=6.5.0
+dj-database-url>=2.1.0
