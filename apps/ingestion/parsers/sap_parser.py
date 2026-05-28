@@ -132,7 +132,7 @@ class SAPProcurementParser(BaseParser):
             'unit': normalized_unit.lower(),
             'original_quantity': qty_decimal,
             'original_unit': raw_unit,
-            'scope': 1 if activity_type in SAP_MATERIAL_TYPES else 3,
+            'scope': 1 if activity_type != 'unknown_fuel' else 3,
             'source_metadata': {
                 'vendor_id': row.get('vendor_id', ''),
                 'vendor_name': row.get('vendor_name', ''),
