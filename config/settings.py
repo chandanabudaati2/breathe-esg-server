@@ -154,7 +154,20 @@ REST_FRAMEWORK = {
 
 # CORS configuration
 CORS_ALLOW_CREDENTIALS = True
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+    "https://breathe-esg-ui-production.up.railway.app",
+]
+
+# Allow dynamic CORS origins via env variables in Railway
+env_cors = os.environ.get('CORS_ALLOWED_ORIGINS', '')
+if env_cors:
+    for origin in env_cors.split(','):
+        cleaned = origin.strip()
+        if cleaned:
+            CORS_ALLOWED_ORIGINS.append(cleaned)
+
 
 # CSRF trusted origins for cross-domain requests
 CSRF_TRUSTED_ORIGINS = [
