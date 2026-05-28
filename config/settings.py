@@ -153,12 +153,8 @@ REST_FRAMEWORK = {
 }
 
 # CORS configuration
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",
-    "http://127.0.0.1:5173",
-    "https://breathe-esg-ui-production.up.railway.app",
-]
 CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_ALL_ORIGINS = True
 
 # CSRF trusted origins for cross-domain requests
 CSRF_TRUSTED_ORIGINS = [
@@ -175,4 +171,11 @@ if env_trusted:
         cleaned = origin.strip()
         if cleaned:
             CSRF_TRUSTED_ORIGINS.append(cleaned)
+
+# Secure Session and CSRF cookie flags for cross-domain Railway deployments
+SESSION_COOKIE_SAMESITE = 'None'
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SAMESITE = 'None'
+CSRF_COOKIE_SECURE = True
+
 
