@@ -168,7 +168,7 @@ CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
-    "https://breathe-esg-ui-production.up.railway.app",
+    "https://breathe-esg-emissions.up.railway.app",
     "https://breathe-esg-emissions.in",
 ]
 
@@ -186,7 +186,7 @@ CSRF_TRUSTED_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
     "https://breathe-esg-server-production.up.railway.app",
-    "https://breathe-esg-ui-production.up.railway.app",
+    "https://breathe-esg-emissions.up.railway.app",
     "https://breathe-esg-emissions.in",
 ]
 
