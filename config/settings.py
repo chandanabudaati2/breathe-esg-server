@@ -160,4 +160,14 @@ CORS_ALLOW_CREDENTIALS = True
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
+    "https://breathe-esg-server-production.up.railway.app",
 ]
+
+# Allow adding custom domains dynamically via environment variables in Railway
+env_trusted = os.environ.get('CSRF_TRUSTED_ORIGINS', '')
+if env_trusted:
+    for origin in env_trusted.split(','):
+        cleaned = origin.strip()
+        if cleaned:
+            CSRF_TRUSTED_ORIGINS.append(cleaned)
+
